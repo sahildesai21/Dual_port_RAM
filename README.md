@@ -36,13 +36,14 @@ This configuration creates a **self-testing loop** that verifies the correctness
 ---
 
 ## 🧩 Block Diagram
-
-
-![Block Diagram](images/block_diagram.png)
+<p align="center">
+  <img src="Images/Screenshot 2025-12-29 152308.png" alt=" Pin diagram" width="800">
+</p>
 
 ---
-```
+
 ## 🗂️ Project File Structure
+```
 ├── top.v # Top-level module
 ├── dpram.v # Dual Port RAM module
 ├── rom.v # ROM module
@@ -57,25 +58,38 @@ This configuration creates a **self-testing loop** that verifies the correctness
 
 ## Simulation Results
 
-
-![Simulation Waveform](images/simulation_waveform.png)
+<p align="center">
+  <img src="Images/WhatsApp Image 2025-11-20 at 09.46.05.jpeg" alt=" Pin diagram" width="800">
+</p>
 
 ---
 
-##  Synthesis & Implementation
-
-
-![RTL Schematic](images/rtl_schematic.png)
-
-
-![Technology Schematic](images/tech_schematic.png)
+##  Synthesis
+<p align="center">
+  <img src="Images/WhatsApp Image 2025-11-20 at 10.45.28.jpeg" alt=" Pin diagram" width="800">
+</p>
 
 ---
 
 ## 📊 Resource Utilization
-
-
-![Resource Utilization](images/resource_utilization.png)
+<p align="center">
+  <img src="Images/WhatsApp Image 2025-11-20 at 11.16.26.jpeg" alt=" Pin diagram" width="800">
+</p>
+<p align="center">
+  <img src="Images/WhatsApp Image 2025-11-20 at 11.16.49.jpeg" alt=" Pin diagram" width="800">
+</p>
+<p align="center">
+  <img src="Images/WhatsApp Image 2025-11-20 at 11.18.22.jpeg" alt=" Pin diagram" width="800">
+</p>
+<p align="center">
+  <img src="Images/WhatsApp Image 2025-11-20 at 11.18.46.jpeg" alt=" Pin diagram" width="800">
+</p>
+<p align="center">
+  <img src="Images/WhatsApp Image 2025-11-20 at 11.19.10.jpeg" alt=" Pin diagram" width="800">
+</p>
+<p align="center">
+  <img src="Images/WhatsApp Image 2025-11-20 at 11.21.18.jpeg" alt=" Pin diagram" width="800">
+</p>
 
 ---
 
