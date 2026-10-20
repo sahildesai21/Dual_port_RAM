@@ -1,0 +1,4 @@
+# system-level tests for top.v
+sys_basic_test
+sys_enable_test
+sys_reset_test

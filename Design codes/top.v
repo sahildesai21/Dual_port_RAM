@@ -42,6 +42,7 @@ module top (
     reg  [7:0] rom_out_reg;           // Registered ROM output
     reg  [7:0] ram_out_reg;           // Registered RAM output for adder
     reg        we_reg;                // Registered write enable
+    reg  [5:0] wr_addr_reg;           // Registered write address (stays in step with rom_out_reg)
     
     //==========================================================================
     // Address Counters
@@ -89,7 +90,7 @@ module top (
     ) u_dpram (
         .data        (rom_out_reg),       // Write ROM data (registered)
         .read_addr   (ram_rd_addr),       // Read address from down counter
-        .write_addr  (ram_wr_addr),       // Write address from up counter
+        .write_addr  (wr_addr_reg),       // Write address (registered, aligned with data)
         .we          (we_reg),            // Write enable (registered)
         .read_clock  (clk),               // Read clock
         .write_clock (clk),               // Write clock  
@@ -106,10 +107,12 @@ module top (
             rom_out_reg  <= 8'h00;
             ram_out_reg  <= 8'h00;
             we_reg       <= 1'b0;
+            wr_addr_reg  <= 6'h00;
         end else begin
             rom_out_reg  <= rom_out;      // Register ROM output for RAM write
             ram_out_reg  <= ram_out;      // Register RAM output for adder
             we_reg       <= en;           // Write enable follows counter enable
+            wr_addr_reg  <= ram_wr_addr;  // Write address registered together with its data
         end
     end
 

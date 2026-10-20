@@ -80,3 +80,24 @@ A mutant that no test fails on means a test or checker is missing.
 ## 8. Suggested build order
 T01 first (proves the env wiring), then T02-T09, then T10-T13, then T14-T17,
 then SVA and coverage, then the mutants.
+
+## 9. Implementation status
+| Test | Status | Where |
+|---|---|---|
+| T01, T02, T04 | done | write_read_test |
+| T03 (read latency) | covered implicitly | scoreboard fails if q is not exactly one read clock behind |
+| T05 (we=0) | partly | random traffic has 20% we=0 items; no directed test (M1 is killed only by random/reset traffic) |
+| T06, T07, T08 | done | reset_test (write started 3 clocks into a 6-clock reset) |
+| T09 | done | back_to_back_test |
+| T10 | done | collision_test (coverage col=100) |
+| T11, T12 | done | write sweep (addresses 0 and 63) and full_test data patterns 00/FF/AA/55 |
+| T13 | done | random_test |
+| T14 | done | regress.list runs with WR_HALF/RD_HALF plusargs: 100/66 MHz, 66/100 MHz, ~100/150 MHz |
+| T15 | not done (P3) | cross-domain same-address collision; in simulation the read gets the old value when edges coincide |
+| T16 | done | reset_traffic_test, also run with unaligned clocks |
+| T17 | not done (P3) | |
+| System level (top.v) | done | verif/sys, `make sys_regress`: sys_basic_test, sys_enable_test, sys_reset_test |
+
+Assertions: the plan's A3 ("we=0 never changes memory") and A4 ("latency is one clock") need the memory
+contents, which the bound checker cannot see, so the scoreboard covers them. The SVA covers A1 (reset clears q),
+A2 (q known), A3/A3b (write controls known) and A4' (q only changes at a read clock edge).

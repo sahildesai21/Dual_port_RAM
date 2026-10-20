@@ -1,0 +1,16 @@
+# one run per line:  <uvm test>  [WR_HALF=<ns>] [RD_HALF=<ns>]   (half-periods; default 5 ns each)
+# text after "#" is a comment
+base_test
+write_read_test
+back_to_back_test
+collision_test
+reset_test
+reset_traffic_test
+random_test
+full_test
+
+# T14: different write/read clocks
+full_test            WR_HALF=5   RD_HALF=7.5    # read clock slower (100 MHz write, 66 MHz read)
+full_test            WR_HALF=7.5 RD_HALF=5      # write clock slower
+random_test          WR_HALF=5   RD_HALF=3.3    # read clock about 1.5x faster
+reset_traffic_test   WR_HALF=7.5 RD_HALF=5      # reset in traffic, unaligned clocks

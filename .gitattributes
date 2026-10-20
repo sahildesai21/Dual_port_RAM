@@ -1,0 +1,7 @@
+# These files are run by bash/make/sed inside WSL, so they must stay LF even on a
+# Windows checkout (CRLF would break them).
+*.sh      text eol=lf
+*.sed     text eol=lf
+Makefile  text eol=lf
+*.list    text eol=lf
+*.f       text eol=lf

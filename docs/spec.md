@@ -78,4 +78,6 @@ appears on `q` after edge N. There is no read-enable; the port reads on every cl
 
 ## 7. Out of scope (this document)
 `top.v`, `rom.v`, counters, adder. They are covered in a later system-level phase, where the
-intended behavior is "RAM[A] holds ROM[A]" (the current RTL stores ROM[A-1], a known skew).
+intended behavior is "RAM[A] holds ROM[A]". The original `top.v` stored ROM[A-1] (BUG-001 in
+`bug_log.md`); it is fixed by registering the write address with its data. System-level tests live in
+`verif/sys/` and run with `make sys_regress`.
